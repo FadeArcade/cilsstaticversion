@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "code": "CS101",
+    "name": "Introduction to Computer Science",
+    "program": "Computer Science",
+    "year_level": "First Year"
+  },
+  {
+    "id": 2,
+    "code": "CS102",
+    "name": "Computer Programming",
+    "program": "Computer Science",
+    "year_level": "First Year"
+  },
+  {
+    "id": 3,
+    "code": "CS201",
+    "name": "Object-Oriented Programming",
+    "program": "Computer Science",
+    "year_level": "Second Year"
+  },
+  {
+    "id": 4,
+    "code": "CS301",
+    "name": "Data Structures and Algorithms",
+    "program": "Computer Science",
+    "year_level": "Third Year"
+  },
+  {
+    "id": 5,
+    "code": "CS401",
+    "name": "Software Engineering",
+    "program": "Computer Science",
+    "year_level": "Fourth Year"
+  },
+  {
+    "id": 6,
+    "code": "IT101",
+    "name": "Introduction to Information Technology",
+    "program": "Information Technology",
+    "year_level": "First Year"
+  },
+  {
+    "id": 7,
+    "code": "IT201",
+    "name": "Database Management Systems",
+    "program": "Information Technology",
+    "year_level": "Second Year"
+  },
+  {
+    "id": 8,
+    "code": "IT202",
+    "name": "Web Development",
+    "program": "Information Technology",
+    "year_level": "Second Year"
+  },
+  {
+    "id": 9,
+    "code": "IT301",
+    "name": "Network Administration",
+    "program": "Information Technology",
+    "year_level": "Third Year"
+  },
+  {
+    "id": 10,
+    "code": "IT401",
+    "name": "Software Engineering",
+    "program": "Information Technology",
+    "year_level": "Fourth Year"
+  }
+]

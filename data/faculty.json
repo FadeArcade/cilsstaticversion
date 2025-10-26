@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "name": "Dr. Maria Santos",
+    "email": "maria.santos@mcu.edu.ph",
+    "department": "CSIT",
+    "subject": "Data Structures and Algorithms",
+    "status": "Active"
+  },
+  {
+    "id": 2,
+    "name": "Prof. Juan Dela Cruz",
+    "email": "juan.delacruz@mcu.edu.ph",
+    "department": "CSIT",
+    "subject": "Database Management Systems",
+    "status": "Active"
+  },
+  {
+    "id": 3,
+    "name": "Dr. Ana Rodriguez",
+    "email": "ana.rodriguez@mcu.edu.ph",
+    "department": "CSIT",
+    "subject": "Computer Programming",
+    "status": "Active"
+  },
+  {
+    "id": 4,
+    "name": "Prof. Carlos Mendoza",
+    "email": "carlos.mendoza@mcu.edu.ph",
+    "department": "CSIT",
+    "subject": "Software Engineering",
+    "status": "Active"
+  },
+  {
+    "id": 5,
+    "name": "Dr. Patricia Garcia",
+    "email": "patricia.garcia@mcu.edu.ph",
+    "department": "CSIT",
+    "subject": "Web Development",
+    "status": "Active"
+  },
+  {
+    "id": 6,
+    "name": "Prof. Michael Torres",
+    "email": "michael.torres@mcu.edu.ph",
+    "department": "CSIT",
+    "subject": "Network Administration",
+    "status": "Inactive"
+  }
+]
