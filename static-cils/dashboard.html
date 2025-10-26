@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <title>CS/IT Laboratory Scheduler</title>
+    <link rel="icon" type="image/x-icon" href="assets/Scitech logo.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- CSS Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  </head>
+  <body>
+
+    <div class="wrapper">
+      <aside id="sidebar">
+        <div class="d-flex">
+          <button class="toggle-btn" type="button">
+            <i class="lni lni-grid-alt"></i>
+          </button>
+          <div class="sidebar-logo" style="margin-top: 32px;">
+            <a href="dashboard.html">Dashboard</a>
+          </div>
+        </div>
+        <ul class="sidebar-nav">
+          <li class="sidebar-item active">
+            <a href="dashboard.html" class="sidebar-link">
+              <i class="lni lni-home"></i>
+              <span>Home</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="create-schedule.html" class="sidebar-link">
+              <i class="lni lni-add-files"></i>
+              <span>Create Schedule</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="view-schedules.html" class="sidebar-link">
+              <i class="lni lni-eye"></i>
+              <span>View Schedules</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="create-announcement.html" class="sidebar-link">
+              <i class="lni lni-pencil-alt"></i>
+              <span>Create Announcement</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a href="#" class="sidebar-link has-dropdown collapsed" data-bs-toggle="collapse" data-bs-target="#auth" aria-expanded="false" aria-controls="auth">
+              <i class="lni lni-users"></i>
+              <span>Faculty Management</span>
+            </a>
+            <ul class="sidebar-dropdown list-unstyled collapse" id="auth" data-bs-parent="#sidebar">
+              <li class="sidebar-item">
+                <a href="add-faculty.html" class="sidebar-link">Add Faculty</a>
+              </li>
+              <li class="sidebar-item">
+                <a href="faculty-management.html" class="sidebar-link">View Faculty</a>
+              </li>
+            </ul>
+          </li>
+          <li class="sidebar-footer">
+            <a href="login.html" class="sidebar-link">
+              <i class="lni lni-exit"></i>
+              <span>Logout</span>
+            </a>
+          </li>
+        </ul>
+      </aside>
+      <div class="main">
+        <nav class="navbar navbar-expand px-4 py-4" data-bs-theme="dark">
+          <div class="navbar-collapse collapse">
+            <img src="assets/Scitech logo.png" alt="Scitechlogo" height="60px" width="60px">
+            <a class="navbar-brand mx-3 fs-3" id="navtitle" href="#">CS/IT Laboratory Scheduler</a>
+            <ul class="navbar-nav ms-auto">
+              <li class="navbar-item dropdown">
+                <div class="timer-container">
+                  <!-- Current Date -->
+                  <div class="date" id="currentDate">
+                    <!-- Date will be dynamically inserted here -->
+                  </div>
+              
+                  <!-- Local Time -->
+                  <div class="time" id="localTime">
+                    00:00:00
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <main class="content px-3 py-4">
+          <section id="dashboard" class="mx-4 pb-0" style="font-family: 'Montserrat';">
+            <div class="row mb-5" style="margin-top: 100px;">
+              <div class="col">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col" style="background-color: #3c6e7a; color: white;">Time</th>
+                      <th scope="col" style="background-color: #3c6e7a; color: white;">Course Code</th>
+                      <th scope="col" style="background-color: #3c6e7a; color: white;">Course Name</th>
+                      <th scope="col" style="background-color: #3c6e7a; color: white;">Faculty Name</th>
+                      <th scope="col" style="background-color: #3c6e7a; color: white;">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody id="scheduleTable">
+                    <!-- Sample schedule data will be loaded here -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="row my-5">
+              <div class="col-sm-6 mb-3 mb-sm-0">
+                <div class="card">
+                  <div class="card-body" style="height: 400px; overflow-y: auto;">
+                    <h3 class="card-title text-center">Announcements</h3>
+                    <div id="announcements">
+                      <!-- Sample announcements will be loaded here -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6 mb-3 mb-sm-0">
+                <div class="card">
+                  <div class="card-header text-center fs-3" style="background-color: #3c6e7a; color: white;">
+                    Laboratory Rules
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item text-center">No Student shall enter the laboratory without the permission of the faculty</li>
+                    <li class="list-group-item text-center">Always make sure that lights and power inside the laboratory is turned off</li>
+                    <li class="list-group-item text-center">Make sure to shutdown the computer before leaving the laboratory</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.0/dist/umd/popper.min.js"></script>
+
+    <!-- Javascript Bootstrap -->
+    <script src="sidebars.js"></script>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <script>
+      // Function to update the current date
+      function updateDate() {
+        const currentDateElement = document.getElementById('currentDate');
+        const now = new Date();
+        const options = { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' };
+        const formattedDate = now.toLocaleDateString('en-US', options);
+        currentDateElement.textContent = formattedDate;
+      }
+
+      // Function to update the local time (12-hour format)
+      function updateTime() {
+        const localTimeElement = document.getElementById('localTime');
+        const now = new Date();
+        
+        let hours = now.getHours();
+        let minutes = now.getMinutes();
+        let seconds = now.getSeconds();
+        let ampm = hours >= 12 ? 'PM' : 'AM';
+
+        // Convert 24-hour format to 12-hour format
+        hours = hours % 12;
+        hours = hours ? hours : 12; // the hour '0' should be '12'
+        
+        // Format minutes and seconds to always have two digits
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        // Update the time display in 12-hour format
+        localTimeElement.textContent = hours + ":" + minutes + ":" + seconds + " " + ampm;
+      }
+
+      // Load sample data
+      function loadSampleData() {
+        // Load schedules
+        fetch('data/schedules.json')
+          .then(response => response.json())
+          .then(data => {
+            const tableBody = document.getElementById('scheduleTable');
+            const now = new Date();
+            
+            data.forEach(schedule => {
+              const startTime = new Date(`2024-01-01 ${schedule.time_start}`);
+              const endTime = new Date(`2024-01-01 ${schedule.time_end}`);
+              const currentTime = new Date(`2024-01-01 ${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`);
+              
+              let status, statusClass;
+              if (schedule.status === 'Rejected') {
+                status = 'Cancelled';
+                statusClass = 'text-bg-danger';
+              } else if (currentTime < startTime) {
+                status = 'Upcoming';
+                statusClass = 'text-bg-primary';
+              } else if (currentTime >= startTime && currentTime <= endTime) {
+                status = 'Ongoing';
+                statusClass = 'text-bg-success';
+              } else {
+                status = 'Done';
+                statusClass = 'text-bg-secondary';
+              }
+
+              const startDisplay = startTime.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
+              const endDisplay = endTime.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
+              
+              const row = `
+                <tr>
+                  <td>${startDisplay} - ${endDisplay}</td>
+                  <td>${schedule.course_code}</td>
+                  <td>${schedule.course_name}</td>
+                  <td>${schedule.faculty_name}</td>
+                  <td><span class="badge ${statusClass}">${status}</span></td>
+                </tr>
+              `;
+              tableBody.innerHTML += row;
+            });
+          })
+          .catch(error => {
+            console.error('Error loading schedules:', error);
+            document.getElementById('scheduleTable').innerHTML = '<tr><td colspan="5" class="text-center">No schedules for today.</td></tr>';
+          });
+
+        // Load announcements
+        fetch('data/announcements.json')
+          .then(response => response.json())
+          .then(data => {
+            const announcementsDiv = document.getElementById('announcements');
+            data.forEach(announcement => {
+              const announcementHTML = `
+                <h5 class="card-subtitle mb-2">${announcement.title}</h5>
+                <p class="card-text fs-6">${announcement.content.replace(/\n/g, '<br>')}</p>
+                ${announcement.image_path ? `<div style="height: 200px; overflow: hidden;"><img src="${announcement.image_path}" class="img-fluid mb-3" alt="Announcement image" style="width: 100%; height: 100%; object-fit: cover;"></div>` : ''}
+                <small class="text-muted">Posted by: ${announcement.created_by} on ${new Date(announcement.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</small>
+                <hr class="my-4">
+              `;
+              announcementsDiv.innerHTML += announcementHTML;
+            });
+          })
+          .catch(error => {
+            console.error('Error loading announcements:', error);
+            document.getElementById('announcements').innerHTML = '<p class="card-text fs-6 text-center">No announcements available.</p>';
+          });
+      }
+
+      // Update the date and time every second
+      setInterval(function() {
+        updateDate();
+        updateTime();
+      }, 1000);
+
+      // Initial load
+      updateDate();
+      updateTime();
+      loadSampleData();
+    </script>
+  </body>
+</html>
